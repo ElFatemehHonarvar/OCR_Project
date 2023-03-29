@@ -118,3 +118,50 @@ pip install -r requirements.txt
 | --------------------- | ------------------ | :-------: | :----: | :------: | -----------------------------------------------------------: |
 | SynthText             | ICDAR2013          |   0.801   | 0.748  |  0.773   | <a href="https://drive.google.com/file/d/1enVIsgNvBf3YiRsVkxodspOn55PIK-LJ/view?usp=sharing">download link</a> |
 | SynthText + ICDAR2015 | ICDAR2015          |   0.909   | 0.794  |  0.848   | <a href="https://drive.google.com/file/d/1qUeZIDSFCOuGS9yo8o0fi-zYHLEW6lBP/view">download link</a> |
+
+
+
+## My Experience
+
+In this document, I want to train and detect my custom dataset on a CRAFT model. Before the training process begins, there are some challenges and solutions related to my dataset that I aim to discuss here.
+
+### - Dataset Preparation
+
+-------
+
+Most of the time good results can be obtained with no changes to the models or training settings provided your dataset is sufficiently large, varied, and well-labeled. Unfortunately, my custom dataset does not satisfy these conditions, and I want to describe how I met some of these challenges.
+
+1. The initial label format was as follow:
+
+   9 20 36 54
+   37 19 54 55
+   55 19 81 54
+   82 20 98 55
+   99 20 124 54
+   125 19 138 55
+   139 19 168 53
+
+   The numbers represent the coordinates of the bounding boxes around each character in the generated synthetic text images, but according to EasyOCR instructions, the 8 numbers for each coordination as well as the text content in the image should be mentioned:
+
+    9,55,168,55,168,19,9,19,D C B A
+
+2. With respect to the suggested name for the label on Github, I made a change to my dataset TXT label from   ***task_data_0_boxes.txt***  to ***gt_task_data_0.txt***
+
+3. The other challenge is that Persian contents were reversed:
+
+   فیدر     ->   ردیف
+
+4. Let's take a look at a sample:
+
+   ![image-20230329223412075](/home/elham/.config/Typora/typora-user-images/image-20230329223412075.png)
+
+   As you can see the Persian text is not defined in OpenCV.
+
+   
+
+
+
+
+
+
+
