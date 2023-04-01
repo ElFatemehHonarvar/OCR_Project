@@ -149,7 +149,7 @@ Most of the time good results can be obtained with no changes to the models or t
 
 3. The other challenge is that Persian contents were reversed:
 
-   فیدر     ->   ردیف
+   فیدر     <-   ردیف
 
 4. Let's take a look at a sample:
 
@@ -157,11 +157,8 @@ Most of the time good results can be obtained with no changes to the models or t
 
    As you can see the Persian text is not defined in OpenCV.
 
+5. You can find the data preparation and analysis process *OCR_Custom_Dataset.ipynb*
+
+6.  Training and detection results are available in  *OCR_Training_Results.ipynb*
+
    
-
-
-
-
-
-
-
